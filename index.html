@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="grid">
+        <div id="left-container">
+            <div>
+                <img src="icons/clock.png" alt="" id="clockIcon">
+                <div id="counter">00:00:00</div>
+            </div>
+            <div id="difficulty-display"></div>
+        </div>
+        <div id="sudoku">
+            <h1>Sudoku Game</h1>
+            <hr><br>
+            <div id="errors">0</div> <br>
+            <div id="board"></div> <br>
+            <div id="numbers"></div>
+        </div>
+        <div id="menu-buttons">
+            <ul>
+                <li>
+                    <button data-modal-target="#pauseModal">Pause</button>
+                    <div class="modal" id="pauseModal">
+                        <div class="message">Game Paused</div>
+                        <div class="modal-buttons">
+                            <button data-close-button class="green-button">Resume</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button data-modal-target="#restartModal">Restart</button>
+                    <div class="modal" id="restartModal">
+                        <div class="message">Do You Want To Restart?</div>
+                        <div class="modal-buttons">
+                            <button data-close-button class="green-button" onclick="clearGame(); setGame();">Restart</button>
+                            <button data-close-button class="red-button">Cancel</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <button data-modal-target="#newGameModal">New Game</button>
+                    <div class="modal" id="newGameModal">
+                        <div class="message">Do You Want To Play a New Game?</div>
+                        <div class="modal-buttons">
+                            <button data-close-button data-new-game-button class="green-button">New Game</button>
+                            <button data-close-button class="red-button">Cancel</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Win - Loss modal -->
+    <div class="modal" id="resultModal">
+        <div class="message">
+            <div class="text"></div>
+            <div class="time"></div>
+            <div class="difficulty"></div>
+        </div>
+        <div class="modal-buttons">
+            <button data-close-button class="green-button" data-new-game-button >New Game</button>
+            <button data-close-button class="blue-button" onclick="clearGame(); setGame();">Reset</button>
+        </div>
+    </div>
+    <!-- Game Difficulty modal -->
+    <div class="modal" id="gameDifficultyModal">
+        <div class="message">Choose Difficulty:</div>
+        <div class="modal-buttons">
+            <button data-difficulty = "easy" class="green-button">Easy</button>
+            <button data-difficulty = "medium" class="yellow-button">Medium</button>
+            <button data-difficulty = "hard" class="red-button">Hard</button>
+            <button data-difficulty = "expert" class="purple-button">Expert</button>
+
+        </div>
+    </div>
+    <div id="overlay" ></div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
